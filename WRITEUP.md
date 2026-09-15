@@ -21,7 +21,7 @@ reflectively loaded a second stage. The dropped binary
 1. UAC bypass staging via `fodhelper.exe` (`T1548.002`).
 2. AMSI patch (`T1562.001`) — Sysmon EID 10 `CallTrace UNKNOWN`.
 3. Dead-drop C2 discovery via `steamcommunity.com` — a
-   base64-encoded pointer to `c2-updates.corp-cdn.top` embedded
+   base64-encoded pointer to `ms-sync.corp-cdn.top` embedded
    in a Steam profile `personaname` field (`T1102.003`).
 4. Persistence via `HKCU\...\Run\OneDriveSync` (`T1547.001`).
 5. Chromium App-Bound Encryption bypass by opening a handle on
@@ -29,7 +29,7 @@ reflectively loaded a second stage. The dropped binary
    `app_bound_encryption_provider` marker (`T1055` + `T1555.003`).
 6. Collection into `%TEMP%\WwaCJ7z\`, 7-Zip archiving with the
    password `StG!7ip-42-nw` (`T1560.001`).
-7. Exfiltration of 2,076,543 bytes to `c2-updates.corp-cdn.top`
+7. Exfiltration of 2,076,543 bytes to `ms-sync.corp-cdn.top`
    under the User-Agent `TeslaBrowser/5.5` (`T1041`, `T1071.001`,
    `T1573.001` with ChaCha20).
 8. Cleanup: staging directory deleted (`T1070.004`) — recoverable
@@ -61,14 +61,14 @@ through the specific artefacts and the pivots between them.
 | 09:41:09–10 | Discovery WMI queries (`Win32_ComputerSystem`, `Win32_OperatingSystem`, `Win32_Processor`, `Win32_VideoController`, `Win32_BIOS`) by PID 4120 | `wmi_activity_evtx.csv` |
 | 09:41:14 | Staging dir `%TEMP%\WwaCJ7z` created | `mft_extract.csv`, `usn_journal.csv` |
 | 09:41:14 | HTTPS to `steamcommunity.com` — dead-drop resolver | `zeek/ssl.log`, `zeek/http.log`, `zeek/dns.log` |
-| 09:41:15 | HTTPS to `c2-updates.corp-cdn.top`, `POST /c2sock`, UA `TeslaBrowser/5.5` — handshake | `zeek/http.log`, `zeek/ssl.log` |
+| 09:41:15 | HTTPS to `ms-sync.corp-cdn.top`, `POST /api/v1/events`, UA `TeslaBrowser/5.5` — handshake | `zeek/http.log`, `zeek/ssl.log` |
 | 09:41:19 | Persistence: `HKCU\...\Run\OneDriveSync` written | `regripper_run.txt`, `sysmon_evtx.csv` EID 13 |
 | 09:41:22 | Chrome `Local State` read | `sysmon_evtx.csv` EID 11, `edr.jsonl` |
 | 09:41:24 | Handle opened on `chrome.exe` PID 2412, `GrantedAccess 0x1010` (VM_READ + QUERY_INFO) | `sysmon_evtx.csv` EID 10 |
 | 09:41:27 | Staging file `System.txt` created | `sysmon_evtx.csv` EID 11, USN |
 | 09:41:29 | `Northwind_Q4_earnings.docx` staged | `sysmon_evtx.csv` EID 11, USN, MFT |
 | 09:41:31 | `7z.exe a -pStG!7ip-42-nw -mx=1 stealer_bundle.zip <staged>` launched | `sysmon_evtx.csv` EID 1, `powershell_evtx.csv` EID 4104 |
-| 09:41:33 | Exfil POST #2 (1,047,372 bytes) to `c2-updates.corp-cdn.top` | `zeek/http.log`, `edr.jsonl` |
+| 09:41:33 | Exfil POST #2 (1,047,372 bytes) to `ms-sync.corp-cdn.top` | `zeek/http.log`, `edr.jsonl` |
 | 09:41:35 | Exfil POST #3 (1,027,967 bytes) | `zeek/http.log`, `edr.jsonl` |
 | 09:41:41 | Staging directory + archive deleted; process terminated | `usn_journal.csv`, `edr.jsonl` |
 | 09:57:12 | Host isolation by SOC | `edr.jsonl` last row |
@@ -282,7 +282,7 @@ maps to `Northwind_Q4_earnings.docx`.
 
 ```
 1744446674.020   uid=CO4kA7fJ7fq   ...   server_name=steamcommunity.com
-1744446675.201   uid=CO9L3H2p2r    ...   server_name=c2-updates.corp-cdn.top
+1744446675.201   uid=CO9L3H2p2r    ...   server_name=ms-sync.corp-cdn.top
 ```
 
 `steamcommunity.com` appears first (09:41:14 UTC), the C2
@@ -304,25 +304,25 @@ speaking to a public gaming platform is the anomaly.
 
 ### Q10 — Resolved C2 FQDN
 
-**Answer: `CTF{c2-updates.corp-cdn.top}`**
+**Answer: `CTF{ms-sync.corp-cdn.top}`**
 
 **Where:** `steam_profile_response.html` — the profile page
 contains a `personaname` value:
 
 ```
-<span class="actual_persona_name">FrostyPine ]YzItdXBkYXRlcy5jb3JwLWNkbi50b3A=[</span>
+<span class="actual_persona_name">FrostyPine ]bXMtc3luYy5jb3JwLWNkbi50b3A=[</span>
 ```
 
 The token wrapped between the two `]` delimiters is
-`YzItdXBkYXRlcy5jb3JwLWNkbi50b3A=`. Base64-decode:
+`bXMtc3luYy5jb3JwLWNkbi50b3A=`. Base64-decode:
 
 ```
-$ echo 'YzItdXBkYXRlcy5jb3JwLWNkbi50b3A=' | base64 -d
-c2-updates.corp-cdn.top
+$ echo 'bXMtc3luYy5jb3JwLWNkbi50b3A=' | base64 -d
+ms-sync.corp-cdn.top
 ```
 
 Corroborated by `zeek/dns.log` (the DNS query for
-`c2-updates.corp-cdn.top` fires 1.2 s after the
+`ms-sync.corp-cdn.top` fires 1.2 s after the
 `steamcommunity.com` query), by `zeek/ssl.log`, and by
 `sysmon_evtx.csv` EID 3 (record 101415).
 
@@ -335,9 +335,9 @@ Corroborated by `zeek/dns.log` (the DNS query for
 **Where:** `zeek/http.log`:
 
 ```
-1744446675.812  ...  POST  c2-updates.corp-cdn.top  /c2sock  TeslaBrowser/5.5  1204 ...
-1744446693.150  ...  POST  c2-updates.corp-cdn.top  /c2sock  TeslaBrowser/5.5  1047372 ...
-1744446695.401  ...  POST  c2-updates.corp-cdn.top  /c2sock  TeslaBrowser/5.5  1027967 ...
+1744446675.812  ...  POST  ms-sync.corp-cdn.top  /api/v1/events  TeslaBrowser/5.5  1204 ...
+1744446693.150  ...  POST  ms-sync.corp-cdn.top  /api/v1/events  TeslaBrowser/5.5  1047372 ...
+1744446695.401  ...  POST  ms-sync.corp-cdn.top  /api/v1/events  TeslaBrowser/5.5  1027967 ...
 ```
 
 Corroborated by `edr.jsonl` (`http_user_agent` fields on the
@@ -387,7 +387,7 @@ $ tshark -r capture.pcapng \
 ```
 
 Cross-check by summing HTTP request bodies from `zeek/http.log`
-across the three POSTs to `c2-updates.corp-cdn.top`:
+across the three POSTs to `ms-sync.corp-cdn.top`:
 
 ```
     1,204   (handshake)
@@ -474,7 +474,7 @@ after the incident.
 | Q7  | `CTF{app_bound_encryption_provider}` |
 | Q8  | `CTF{Northwind_Q4_earnings.docx}` |
 | Q9  | `CTF{steamcommunity.com}` |
-| Q10 | `CTF{c2-updates.corp-cdn.top}` |
+| Q10 | `CTF{ms-sync.corp-cdn.top}` |
 | Q11 | `CTF{TeslaBrowser/5.5}` |
 | Q12 | `CTF{ChaCha20}` |
 | Q13 | `CTF{2076543}` |

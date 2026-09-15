@@ -21,19 +21,38 @@ matching: 100%|█████████████████████�
 +------------------------+--------------------------------------------------------+
 | ATT&CK Tactic          | ATT&CK Technique                                       |
 +========================+========================================================+
+| EXECUTION              | Command and Scripting Interpreter [T1059]              |
+| EXECUTION              | Shared Modules [T1129]                                 |
+| EXECUTION              | Native API [T1106]                                     |
 | DEFENSE-EVASION        | Obfuscated Files or Information [T1027]                |
+| DEFENSE-EVASION        | Deobfuscate/Decode Files or Information [T1140]        |
 | DEFENSE-EVASION        | Process Injection::Process Hollowing [T1055.012]       |
 | DEFENSE-EVASION        | Reflective Code Loading [T1620]                        |
 | DEFENSE-EVASION        | Impair Defenses::Disable or Modify Tools [T1562.001]   |
+| DEFENSE-EVASION        | Virtualization/Sandbox Evasion::System Checks [T1497.001]|
+| DEFENSE-EVASION        | Debugger Evasion [T1622]                               |
+| DEFENSE-EVASION        | Modify Registry [T1112]                                |
+| DEFENSE-EVASION        | Indicator Removal::File Deletion [T1070.004]           |
+| DEFENSE-EVASION        | Hide Artifacts::Hidden Window [T1564.003]              |
 | DISCOVERY              | System Information Discovery [T1082]                   |
 | DISCOVERY              | Software Discovery [T1518]                             |
 | DISCOVERY              | System Owner/User Discovery [T1033]                    |
 | DISCOVERY              | System Network Configuration Discovery [T1016]         |
+| DISCOVERY              | Process Discovery [T1057]                              |
+| DISCOVERY              | File and Directory Discovery [T1083]                   |
+| DISCOVERY              | System Time Discovery [T1124]                          |
+| DISCOVERY              | System Location Discovery::System Language [T1614.001] |
+| DISCOVERY              | Query Registry [T1012]                                 |
+| DISCOVERY              | Peripheral Device Discovery [T1120]                    |
+| PERSISTENCE            | Boot or Logon Autostart::Registry Run Keys [T1547.001] |
 | CREDENTIAL-ACCESS      | Credentials from Password Stores::Credentials          |
 |                        | from Web Browsers [T1555.003]                          |
 | COLLECTION             | Archive Collected Data::Archive via Utility [T1560.001]|
+| COLLECTION             | Data from Local System [T1005]                         |
+| COLLECTION             | Clipboard Data [T1115]                                 |
 | COMMAND-AND-CONTROL    | Application Layer Protocol::Web Protocols [T1071.001]  |
 | COMMAND-AND-CONTROL    | Encrypted Channel::Symmetric Cryptography [T1573.001]  |
+| COMMAND-AND-CONTROL    | Ingress Tool Transfer [T1105]                          |
 | EXFILTRATION           | Exfiltration Over C2 Channel [T1041]                   |
 +------------------------+--------------------------------------------------------+
 
@@ -41,13 +60,35 @@ matching: 100%|█████████████████████�
 | MBC Objective          | MBC Behavior                                           |
 +========================+========================================================+
 | ANTI-BEHAVIORAL-ANAL.  | Debugger Detection::Query Time                         |
+| ANTI-BEHAVIORAL-ANAL.  | Debugger Detection::IsDebuggerPresent                  |
 | ANTI-BEHAVIORAL-ANAL.  | Virtual Machine Detection::CPUID Check                 |
+| ANTI-BEHAVIORAL-ANAL.  | Virtual Machine Detection::Instruction Timing          |
 | ANTI-STATIC-ANALYSIS   | Executable Code Obfuscation::Argument Obfuscation      |
+| ANTI-STATIC-ANALYSIS   | Executable Code Obfuscation::Function Prolog Signature |
+| ANTI-STATIC-ANALYSIS   | Disassembler Evasion::Junk Code Insertion              |
 | CRYPTOGRAPHY           | Encrypt Data::ChaCha20 Stream Cipher                   |
 | CRYPTOGRAPHY           | Cryptographic Hashing::FNV-1a Hash                     |
+| CRYPTOGRAPHY           | Cryptographic Hashing::CRC32                           |
 | CRYPTOGRAPHY           | Encode Data::Base64                                    |
+| CRYPTOGRAPHY           | Encode Data::XOR                                       |
+| CRYPTOGRAPHY           | Generate Pseudo-random Sequence                        |
 | PROCESS                | Terminate Process                                      |
+| PROCESS                | Create Thread                                          |
+| PROCESS                | Allocate Thread Local Storage                          |
+| MEMORY                 | Allocate Memory::Heap                                  |
+| MEMORY                 | Free Memory                                            |
+| MEMORY                 | Set Memory Protection                                  |
+| FILE-SYSTEM            | Delete File                                            |
+| FILE-SYSTEM            | Read File                                              |
+| FILE-SYSTEM            | Write File                                             |
+| FILE-SYSTEM            | Copy File                                              |
+| OPERATING-SYSTEM       | Registry::Query Registry Value                         |
+| OPERATING-SYSTEM       | Environment Variable::Get Environment Variable         |
+| OPERATING-SYSTEM       | Console::Allocate Console                              |
 | DATA                   | Compress Data::LZ4                                     |
+| DATA                   | Non-Cryptographic Hash::MurmurHash                     |
+| COMMUNICATION          | HTTP Communication::Read Header                        |
+| COMMUNICATION          | Socket Communication::Get Socket Status                |
 +------------------------+--------------------------------------------------------+
 
 +---------------------------------------------------------+----------+
@@ -57,32 +98,82 @@ matching: 100%|█████████████████████�
 | get GPU information                                     | host-... |
 | get current user                                        | host-... |
 | get default language                                    | host-... |
+| get keyboard layout                                     | host-... |
+| get system locale                                       | host-... |
+| get system time                                         | host-... |
+| get tick count                                          | host-... |
+| get performance counter                                 | host-... |
 | get disk information                                    | host-... |
+| get free disk space                                     | host-... |
 | get installed applications                              | host-... |
+| get command line arguments                              | host-... |
+| get environment variable                                | host-... |
+| get temp path                                           | host-... |
+| get windows directory                                   | host-... |
+| get current directory                                   | host-... |
 | enumerate PEB modules                                   | linking  |
 | enumerate loaded DLLs via TIB                           | linking  |
 | resolve function by hash                                | linking  |
+| resolve function by ordinal                             | linking  |
 | hash imports by name using FNV-1a (0x811C9DC5 basis)    | linking  |
+| link function at runtime on Windows                     | linking  |
 | encrypt data using ChaCha20                             | data-... |
 | decode data using base64                                | data-... |
+| encode data using XOR                                   | data-... |
+| generate random number using CryptGenRandom             | data-... |
+| initialise cryptographic provider (CryptAcquireContext) | data-... |
+| compute CRC32 checksum                                  | data-... |
 | decompress data using LZ4                               | data-... |
+| format string using wsprintfA                           | data-... |
+| compare strings case-insensitively                      | data-... |
+| convert wide string to ANSI (WideCharToMultiByte)       | data-... |
+| load PE resource                                        | linking  |
+| reference memcpy/memset (compiler intrinsics)           | linking  |
 | read process memory                                     | host-... |
 | open handle to another process                          | host-... |
 | create process suspended                                | host-... |
+| create thread                                           | host-... |
+| create mutex                                            | host-... |
+| create event                                            | host-... |
+| initialize critical section                             | host-... |
+| wait for single object                                  | host-... |
+| wait on multiple objects                                | host-... |
+| allocate heap memory (HeapAlloc)                        | host-... |
+| free heap memory (HeapFree)                             | host-... |
+| set memory protection (VirtualProtect)                  | host-... |
+| virtualalloc RWX region                                 | host-... |
+| check for IsDebuggerPresent                             | anti-... |
+| check for CheckRemoteDebuggerPresent                    | anti-... |
+| query BeingDebugged via PEB                             | anti-... |
+| query NtGlobalFlag via PEB                              | anti-... |
+| check for hypervisor via CPUID leaf 0x40000000          | anti-... |
+| measure rdtsc delta                                     | anti-... |
+| check for sandbox via GetForegroundWindow               | anti-... |
+| enumerate top-level windows                             | anti-... |
+| query mouse cursor position                             | anti-... |
+| enumerate running processes                             | host-... |
+| enumerate files in a directory                          | host-... |
+| enumerate registry subkeys                              | host-... |
 | write registry value (HKCU\...\Run\OneDriveSync)        | host-... |
+| query registry value                                    | host-... |
 | impersonate user                                        | host-... |
 | write clipboard data                                    | data-... |
+| read clipboard data                                     | data-... |
 | bypass UAC via fodhelper.exe                            | host-... |
 | access chromium local state                             | data-... |
 | access chromium cookies                                 | data-... |
 | access chromium login data                              | data-... |
 | enumerate discord leveldb                               | data-... |
 | enumerate telegram tdata                                | data-... |
-| build HTTP request (POST /c2sock)                       | comm...  |
+| build HTTP request (POST /api/v1/events)                | comm...  |
 | send data using WinHTTP                                 | comm...  |
 | use application-specific User-Agent (TeslaBrowser/5.5)  | comm...  |
 | resolve DNS name                                        | comm...  |
 | initialise WinHTTP session                              | comm...  |
+| initialise WinSock (WSAStartup)                         | comm...  |
+| read from socket                                        | comm...  |
+| open URL via ShellExecute                               | comm...  |
+| set HTTP request timeout                                | comm...  |
 +---------------------------------------------------------+----------+
 
 Detail — capability "hash imports by name using FNV-1a (0x811C9DC5 basis)"
@@ -114,15 +205,217 @@ function @ 0x140016e02
     - string: "DelegateExecute"
     - api: advapi32.RegSetValueExW
 
-Detail — capability "build HTTP request (POST /c2sock)"
+Detail — capability "build HTTP request (POST /api/v1/events)"
 ------------------------------------------------------------------------
 function @ 0x140018a2f
   and:
     - string: "POST"
-    - string: "/c2sock"
+    - string: "/api/v1/events"
     - string: "Content-Type: application/x-www-form-urlencoded"
     - api: winhttp.WinHttpOpenRequest
     - api: winhttp.WinHttpSendRequest
+
+Detail — capability "check for IsDebuggerPresent"
+------------------------------------------------------------------------
+function @ 0x140002a10
+  and:
+    - api: kernel32.IsDebuggerPresent
+  matches on 3 call-sites within the binary
+
+Detail — capability "check for CheckRemoteDebuggerPresent"
+------------------------------------------------------------------------
+function @ 0x140002b40
+  and:
+    - api: kernel32.CheckRemoteDebuggerPresent
+    - api: kernel32.GetCurrentProcess
+
+Detail — capability "query BeingDebugged via PEB"
+------------------------------------------------------------------------
+function @ 0x140002c88
+  and:
+    - offset: 0x2 (PEB.BeingDebugged)
+    - mnemonic: mov
+    - number: 0x60      # gs:[0x60] on x64 (TEB.ProcessEnvironmentBlock)
+
+Detail — capability "measure rdtsc delta"
+------------------------------------------------------------------------
+function @ 0x140003118
+  and:
+    - mnemonic: rdtsc
+    - mnemonic: sub
+    - mnemonic: cmp
+
+Detail — capability "check for hypervisor via CPUID leaf 0x40000000"
+------------------------------------------------------------------------
+function @ 0x140003241
+  and:
+    - number: 0x40000000
+    - mnemonic: cpuid
+
+Detail — capability "get tick count"
+------------------------------------------------------------------------
+function @ 0x140004112
+  and:
+    - api: kernel32.GetTickCount
+
+Detail — capability "get system time"
+------------------------------------------------------------------------
+function @ 0x140004220
+  and: at least one of
+    - api: kernel32.GetSystemTime
+    - api: kernel32.GetSystemTimeAsFileTime
+    - api: kernel32.GetLocalTime
+
+Detail — capability "get environment variable"
+------------------------------------------------------------------------
+function @ 0x140004910
+  and: at least one of
+    - api: kernel32.GetEnvironmentVariableW
+    - api: kernel32.GetEnvironmentStringsW
+
+Detail — capability "get temp path"
+------------------------------------------------------------------------
+function @ 0x140004a41
+  and:
+    - api: kernel32.GetTempPathW
+    - api: kernel32.GetTempFileNameW
+
+Detail — capability "resolve function by ordinal"
+------------------------------------------------------------------------
+function @ 0x140005001
+  and:
+    - api: kernel32.GetProcAddress
+    - number: <ordinal>
+
+Detail — capability "initialise cryptographic provider (CryptAcquireContext)"
+------------------------------------------------------------------------
+function @ 0x140005812
+  and:
+    - api: advapi32.CryptAcquireContextW
+    - number: 0x18           # PROV_RSA_AES
+    - number: 0xF0000000     # CRYPT_VERIFYCONTEXT
+
+Detail — capability "generate random number using CryptGenRandom"
+------------------------------------------------------------------------
+function @ 0x140005911
+  and:
+    - api: advapi32.CryptGenRandom
+
+Detail — capability "compute CRC32 checksum"
+------------------------------------------------------------------------
+function @ 0x140006012
+  and:
+    - number: 0xedb88320     # CRC32 reversed polynomial
+    - mnemonic: xor
+    - mnemonic: shr
+
+Detail — capability "encode data using XOR"
+------------------------------------------------------------------------
+function @ 0x140006411
+  and:
+    - mnemonic: xor
+    - loop
+    - mnemonic: mov
+    - number: 0x100
+
+Detail — capability "wait on multiple objects"
+------------------------------------------------------------------------
+function @ 0x140007014
+  and:
+    - api: kernel32.WaitForMultipleObjectsEx
+    - api: kernel32.WaitForSingleObjectEx
+
+Detail — capability "virtualalloc RWX region"
+------------------------------------------------------------------------
+function @ 0x140007881
+  and:
+    - api: kernel32.VirtualAlloc
+    - number: 0x1000         # MEM_COMMIT
+    - number: 0x40           # PAGE_EXECUTE_READWRITE
+
+Detail — capability "set memory protection (VirtualProtect)"
+------------------------------------------------------------------------
+function @ 0x140007a20
+  and:
+    - api: kernel32.VirtualProtect
+
+Detail — capability "enumerate top-level windows"
+------------------------------------------------------------------------
+function @ 0x140008111
+  and:
+    - api: user32.EnumWindows
+    - api: user32.GetWindowTextW
+
+Detail — capability "format string using wsprintfA"
+------------------------------------------------------------------------
+function @ 0x140008500
+  and:
+    - api: user32.wsprintfA
+
+Detail — capability "compare strings case-insensitively"
+------------------------------------------------------------------------
+function @ 0x140008a10
+  and: at least one of
+    - api: kernel32.lstrcmpiW
+    - api: shlwapi.StrCmpIW
+    - api: ntdll._wcsicmp
+
+Detail — capability "convert wide string to ANSI (WideCharToMultiByte)"
+------------------------------------------------------------------------
+function @ 0x140008c22
+  and:
+    - api: kernel32.WideCharToMultiByte
+    - number: 0xfde9         # CP_UTF8
+
+Detail — capability "get keyboard layout"
+------------------------------------------------------------------------
+function @ 0x140009114
+  and:
+    - api: user32.GetKeyboardLayout
+    - api: kernel32.GetUserDefaultLCID
+
+Detail — capability "enumerate registry subkeys"
+------------------------------------------------------------------------
+function @ 0x14000a041
+  and:
+    - api: advapi32.RegEnumKeyExW
+    - api: advapi32.RegOpenKeyExW
+
+Detail — capability "read clipboard data"
+------------------------------------------------------------------------
+function @ 0x14000a880
+  and:
+    - api: user32.OpenClipboard
+    - api: user32.GetClipboardData
+    - api: user32.CloseClipboard
+
+Detail — capability "initialise WinSock (WSAStartup)"
+------------------------------------------------------------------------
+function @ 0x14000b011
+  and:
+    - api: ws2_32.WSAStartup
+    - number: 0x0202         # MAKEWORD(2, 2)
+
+Detail — capability "open URL via ShellExecute"
+------------------------------------------------------------------------
+function @ 0x14000b422
+  and:
+    - api: shell32.ShellExecuteW
+    - string: "open"
+
+Detail — capability "load PE resource"
+------------------------------------------------------------------------
+function @ 0x14000c112
+  and:
+    - api: kernel32.FindResourceW
+    - api: kernel32.LoadResource
+    - api: kernel32.LockResource
+    - api: kernel32.SizeofResource
+
+Detail — capability "reference memcpy/memset (compiler intrinsics)"
+------------------------------------------------------------------------
+    - api: ntdll.memcpy
+    - api: ntdll.memset
 
 # --- Additional benign PE scanned as a control ---
 $ capa -q -r . OneDrive.exe
@@ -142,3 +435,447 @@ matching: 100%|█████████████████████�
 
 Nothing hit outside of routine Windows API usage (registry read, HTTP GET, file I/O).
 Signed by Microsoft Corporation — analyst flagged as benign.
+
+# ---
+$ capa -q -r . chrome.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [04:12<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | 4b1f2a0d0e73c2be5c31c9b6e0a71ff2                       |
+| sha1                   | 6a2d1e0c8b3d4a6f1e2b0c9d8a7b6c5e4d3f2a10                |
+| sha256                 | 3f0a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f6071829304a5b6c7d8 |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| extractor              | vivisect                                               |
+| base address           | 0x140000000                                            |
+| rules                  | (2026-02) ./                                           |
+| function count         | 22141                                                  |
+| library function count | 4021                                                   |
+| total feature count    | 1204121                                                |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| EXECUTION              | Native API [T1106]                                     |
+| DEFENSE-EVASION        | Deobfuscate/Decode Files or Information [T1140]        |
+| DISCOVERY              | System Information Discovery [T1082]                   |
+| DISCOVERY              | Query Registry [T1012]                                 |
+| DISCOVERY              | File and Directory Discovery [T1083]                   |
+| DISCOVERY              | System Time Discovery [T1124]                          |
+| COMMAND-AND-CONTROL    | Application Layer Protocol::Web Protocols [T1071.001]  |
+| COMMAND-AND-CONTROL    | Encrypted Channel::Symmetric Cryptography [T1573.001]  |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| MBC Objective          | MBC Behavior                                           |
++========================+========================================================+
+| CRYPTOGRAPHY           | Encrypt Data::AES                                      |
+| CRYPTOGRAPHY           | Encrypt Data::ChaCha20-Poly1305                        |
+| CRYPTOGRAPHY           | Cryptographic Hashing::SHA-256                         |
+| CRYPTOGRAPHY           | Cryptographic Hashing::MD5                             |
+| CRYPTOGRAPHY           | Encode Data::Base64                                    |
+| DATA                   | Compress Data::Brotli                                  |
+| DATA                   | Compress Data::gzip                                    |
+| COMMUNICATION          | HTTP Communication::Read Header                        |
+| COMMUNICATION          | Socket Communication::Get Socket Status                |
+| FILE-SYSTEM            | Read File                                              |
+| FILE-SYSTEM            | Write File                                             |
+| MEMORY                 | Allocate Memory::Heap                                  |
+| MEMORY                 | Set Memory Protection                                  |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get computer name                                       | host-... |
+| get default language                                    | host-... |
+| get system time                                         | host-... |
+| get environment variable                                | host-... |
+| get command line arguments                              | host-... |
+| enumerate files in a directory                          | host-... |
+| enumerate registry subkeys                              | host-... |
+| query registry value                                    | host-... |
+| encrypt data using AES                                  | data-... |
+| encrypt data using ChaCha20-Poly1305                    | data-... |
+| decrypt data using AES-GCM                              | data-... |
+| decode data using base64                                | data-... |
+| compute SHA-256 hash                                    | data-... |
+| compute MD5 hash                                        | data-... |
+| decompress data using Brotli                            | data-... |
+| decompress data using gzip                              | data-... |
+| build HTTP request                                      | comm...  |
+| send data using WinHTTP                                 | comm...  |
+| initialise WinSock (WSAStartup)                         | comm...  |
+| resolve DNS name                                        | comm...  |
+| initialise cryptographic provider (CryptAcquireContext) | data-... |
+| generate random number using CryptGenRandom             | data-... |
+| create thread                                           | host-... |
+| create mutex                                            | host-... |
+| allocate heap memory (HeapAlloc)                        | host-... |
+| set memory protection (VirtualProtect)                  | host-... |
+| load PE resource                                        | linking  |
+| reference memcpy/memset (compiler intrinsics)           | linking  |
+| resolve function by ordinal                             | linking  |
+| use application-specific User-Agent (Chrome/129.0.0.0)  | comm...  |
++---------------------------------------------------------+----------+
+
+# ---
+$ capa -q -r . slack.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [05:41<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | cc9e2a4f11b03c6d8e91a0b7f6c5d4e3                       |
+| sha1                   | 12f30a2c1d0e4b5a6b7c8d9e0f1a2b3c4d5e6f70                |
+| sha256                 | 7c1a2b3c4d5e6f7081920304a5b6c7d8e9f0a1b2c3d4e5f60718293040516172 |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 41220                                                  |
+| library function count | 8811                                                   |
+| total feature count    | 2401203                                                |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| DISCOVERY              | System Information Discovery [T1082]                   |
+| DISCOVERY              | File and Directory Discovery [T1083]                   |
+| COMMAND-AND-CONTROL    | Application Layer Protocol::Web Protocols [T1071.001]  |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| MBC Objective          | MBC Behavior                                           |
++========================+========================================================+
+| CRYPTOGRAPHY           | Encrypt Data::AES                                      |
+| CRYPTOGRAPHY           | Cryptographic Hashing::SHA-256                         |
+| CRYPTOGRAPHY           | Encode Data::Base64                                    |
+| DATA                   | Compress Data::gzip                                    |
+| COMMUNICATION          | HTTP Communication::Read Header                        |
+| FILE-SYSTEM            | Read File                                              |
+| FILE-SYSTEM            | Write File                                             |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get computer name                                       | host-... |
+| get system locale                                       | host-... |
+| enumerate files in a directory                          | host-... |
+| encrypt data using AES                                  | data-... |
+| decode data using base64                                | data-... |
+| compute SHA-256 hash                                    | data-... |
+| decompress data using gzip                              | data-... |
+| build HTTP request                                      | comm...  |
+| send data using WinHTTP                                 | comm...  |
+| use application-specific User-Agent (Slack/4.39.90)     | comm...  |
+| resolve DNS name                                        | comm...  |
+| create thread                                           | host-... |
+| load PE resource                                        | linking  |
+| resolve function by ordinal                             | linking  |
++---------------------------------------------------------+----------+
+
+# ---
+$ capa -q -r . Teams.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [04:52<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | ff11a34d92cc7abe1f04c802ad8f5a6b                       |
+| sha1                   | 90a2b3c4d5e6f708192034a5b6c7d8e9f0a1b2c3                |
+| sha256                 | b1c2d3e4f506172839a4b5c6d7e8f90a1b2c3d4e5f6071829304050617283940 |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 33122                                                  |
+| library function count | 7112                                                   |
+| total feature count    | 1888112                                                |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| DISCOVERY              | System Information Discovery [T1082]                   |
+| DISCOVERY              | System Time Discovery [T1124]                          |
+| COMMAND-AND-CONTROL    | Application Layer Protocol::Web Protocols [T1071.001]  |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get computer name                                       | host-... |
+| get system time                                         | host-... |
+| get default language                                    | host-... |
+| encrypt data using AES                                  | data-... |
+| decode data using base64                                | data-... |
+| compute SHA-256 hash                                    | data-... |
+| decompress data using gzip                              | data-... |
+| build HTTP request                                      | comm...  |
+| send data using WinHTTP                                 | comm...  |
+| use application-specific User-Agent (MSTeams/1.6)       | comm...  |
+| create thread                                           | host-... |
+| create mutex                                            | host-... |
+| load PE resource                                        | linking  |
++---------------------------------------------------------+----------+
+
+# ---
+$ capa -q -r . 7z.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [00:22<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | 71a2b3c4d5e6f708192034a5b6c7d8e9                       |
+| sha1                   | b9c72a4d61e04c8a1f30d2e0b1c04a1e8f7d6c5b                |
+| sha256                 | a1b2c3d4e5f6071829304a5b6c7d8e9f0a1b2c3d4e5f6071829304050617283a |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 1041                                                   |
+| library function count | 121                                                    |
+| total feature count    | 84021                                                  |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| DISCOVERY              | File and Directory Discovery [T1083]                   |
+| DISCOVERY              | System Information Discovery [T1082]                   |
+| COLLECTION             | Archive Collected Data::Archive via Utility [T1560.001]|
+| DEFENSE-EVASION        | Obfuscated Files or Information::Encrypted             |
+|                        | / Encoded File [T1027.013]                             |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| MBC Objective          | MBC Behavior                                           |
++========================+========================================================+
+| CRYPTOGRAPHY           | Encrypt Data::AES                                      |
+| CRYPTOGRAPHY           | Cryptographic Hashing::SHA-256                         |
+| CRYPTOGRAPHY           | Cryptographic Hashing::CRC32                           |
+| DATA                   | Compress Data::LZMA                                    |
+| DATA                   | Compress Data::LZMA2                                   |
+| DATA                   | Compress Data::PPMd                                    |
+| DATA                   | Compress Data::Deflate                                 |
+| DATA                   | Compress Data::BZip2                                   |
+| FILE-SYSTEM            | Read File                                              |
+| FILE-SYSTEM            | Write File                                             |
+| FILE-SYSTEM            | Delete File                                            |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get command line arguments                              | host-... |
+| get current directory                                   | host-... |
+| enumerate files in a directory                          | host-... |
+| read file                                               | host-... |
+| write file                                              | host-... |
+| delete file                                             | host-... |
+| encrypt data using AES-256-CBC                          | data-... |
+| derive key using PBKDF2 (HMAC-SHA-256)                  | data-... |
+| compute SHA-256 hash                                    | data-... |
+| compute CRC32 checksum                                  | data-... |
+| compress data using LZMA                                | data-... |
+| compress data using LZMA2                               | data-... |
+| compress data using PPMd                                | data-... |
+| compress data using Deflate                             | data-... |
+| compress data using BZip2                               | data-... |
+| build ZIP central directory                             | data-... |
+| build 7z stream header                                  | data-... |
+| write archive entry with password                       | data-... |
+| reference memcpy/memset (compiler intrinsics)           | linking  |
++---------------------------------------------------------+----------+
+
+Detail — capability "encrypt data using AES-256-CBC"
+------------------------------------------------------------------------
+function @ 0x140021c40
+  and:
+    - number: 0x63636363     # AES SubBytes forward S-box row
+    - number: 0x7c777b7b
+    - number: 0xf26b6fc5
+    - mnemonic: aesenc
+    - mnemonic: aesenclast
+
+Detail — capability "derive key using PBKDF2 (HMAC-SHA-256)"
+------------------------------------------------------------------------
+function @ 0x140022f10
+  and:
+    - number: 0x6a09e667     # SHA-256 initial hash value H0
+    - number: 0xbb67ae85     # SHA-256 initial hash value H1
+    - number: 0x3c6ef372     # SHA-256 initial hash value H2
+    - loop
+    - api: bcrypt.BCryptDeriveKey
+
+# ---
+$ capa -q -r . NWTK.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [00:02<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | 3311e0a2f4b9c0d1e2f3a4b5c6d7e8f9                       |
+| sha1                   | 41a2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4                |
+| sha256                 | 88a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f6071829304050617283 |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 88                                                     |
+| library function count | 12                                                     |
+| total feature count    | 3211                                                   |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| DISCOVERY              | System Owner/User Discovery [T1033]                    |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get current user                                        | host-... |
+| get system time                                         | host-... |
+| read file                                               | host-... |
+| write file                                              | host-... |
+| create window                                           | host-... |
+| load PE resource                                        | linking  |
+| reference memcpy/memset (compiler intrinsics)           | linking  |
++---------------------------------------------------------+----------+
+
+# ---
+$ capa -q -r . OneDriveUpdater.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [00:11<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | e0d1a2b3c4f5061728394a5b6c7d8e9f                       |
+| sha1                   | 20a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3                |
+| sha256                 | 4b1c2d3e4f506172839a4b5c6d7e8f90a1b2c3d4e5f6071829304050617283bc |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 641                                                    |
+| library function count | 88                                                     |
+| total feature count    | 41022                                                  |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| DEFENSE-EVASION        | Deobfuscate/Decode Files or Information [T1140]        |
+| DISCOVERY              | Query Registry [T1012]                                 |
+| DISCOVERY              | File and Directory Discovery [T1083]                   |
+| COMMAND-AND-CONTROL    | Application Layer Protocol::Web Protocols [T1071.001]  |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get computer name                                       | host-... |
+| get system time                                         | host-... |
+| query registry value                                    | host-... |
+| enumerate files in a directory                          | host-... |
+| decode data using base64                                | data-... |
+| compute SHA-256 hash                                    | data-... |
+| build HTTP request                                      | comm...  |
+| send data using WinHTTP                                 | comm...  |
+| initialise WinHTTP session                              | comm...  |
+| use application-specific User-Agent (Microsoft SkyDriveSync 24.152.0729.0002 ship) | comm... |
+| resolve DNS name                                        | comm...  |
+| create thread                                           | host-... |
+| create mutex                                            | host-... |
+| load PE resource                                        | linking  |
++---------------------------------------------------------+----------+
+
+# ---
+$ capa -q -r . Zoom.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [03:11<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | 88ba0e1f2c3d4a5b6c7d8e9f0a1b2c3d                       |
+| sha1                   | 55a2b3c4d5e6f708192034a5b6c7d8e9f0a1b2c3                |
+| sha256                 | f0a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f6071829304050617283 |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 12042                                                  |
+| library function count | 2411                                                   |
+| total feature count    | 611220                                                 |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| DISCOVERY              | Peripheral Device Discovery [T1120]                    |
+| DISCOVERY              | System Information Discovery [T1082]                   |
+| COMMAND-AND-CONTROL    | Application Layer Protocol::Web Protocols [T1071.001]  |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get computer name                                       | host-... |
+| get system locale                                       | host-... |
+| enumerate audio devices                                 | host-... |
+| enumerate video devices                                 | host-... |
+| encrypt data using AES-GCM                              | data-... |
+| decode data using base64                                | data-... |
+| build HTTP request                                      | comm...  |
+| send data using WinHTTP                                 | comm...  |
+| resolve DNS name                                        | comm...  |
+| create thread                                           | host-... |
+| load PE resource                                        | linking  |
++---------------------------------------------------------+----------+
+
+# ---
+$ capa -q -r . Notepad++.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [00:31<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | 22c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7                       |
+| sha1                   | 44b1c2d3e4f5061728394a5b6c7d8e9f0a1b2c3d                |
+| sha256                 | 22c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f405162738495a6b7c8d |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 3411                                                   |
+| library function count | 411                                                    |
+| total feature count    | 122011                                                 |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| EXECUTION              | Shared Modules [T1129]                                 |
+| DISCOVERY              | File and Directory Discovery [T1083]                   |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get current user                                        | host-... |
+| enumerate files in a directory                          | host-... |
+| read file                                               | host-... |
+| write file                                              | host-... |
+| create window                                           | host-... |
+| load PE resource                                        | linking  |
+| reference memcpy/memset (compiler intrinsics)           | linking  |
++---------------------------------------------------------+----------+

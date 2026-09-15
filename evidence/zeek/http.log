@@ -14,15 +14,22 @@
 1744446550.011	CxA031	10.10.42.87	52082	10.10.10.44	443	1	GET	sccm.northwind.lab	/apps/Chrome/latest.json	Mozilla/5.0 (Windows NT 10.0; Win64; x64) WindowsPowerShell/5.1	0	18022	200	OK
 1744446648.310	CyKZgY9wR8	10.10.42.87	52000	10.10.42.200	8080	1	GET	10.10.42.200:8080	/x.txt	Mozilla/5.0 (Windows NT 10.0; Win64; x64) WindowsPowerShell/5.1	0	12384	200	OK
 1744446674.121	CO4kA7fJ7fq	10.10.42.87	52001	10.10.42.201	443	1	GET	steamcommunity.com	/profiles/76561199987654321	Mozilla/5.0 (Windows NT 10.0)	0	4211	200	OK
-1744446675.812	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	1	POST	c2-updates.corp-cdn.top	/c2sock	TeslaBrowser/5.5	1204	612	200	OK
+1744446675.812	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	1	POST	ms-sync.corp-cdn.top	/api/v1/events	TeslaBrowser/5.5	1204	612	200	OK
 1744446677.912	CxA036	10.10.42.87	52014	151.101.1.140	443	1	GET	cdn.slack-edge.com	/img/2024/badge_v1.svg	Slack/4.39.90 (win32-x64)	0	2044	200	OK
 1744446700.401	CxA038	10.10.42.87	52012	151.101.1.10	443	1	GET	assets.corp-cdn.top	/finance/logos/northwind-solar.svg	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	0	3202	200	OK
-1744446693.150	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	2	POST	c2-updates.corp-cdn.top	/c2sock	TeslaBrowser/5.5	1047372	32	200	OK
-1744446695.401	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	3	POST	c2-updates.corp-cdn.top	/c2sock	TeslaBrowser/5.5	1027967	32	200	OK
+1744446693.150	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	2	POST	ms-sync.corp-cdn.top	/api/v1/events	TeslaBrowser/5.5	1047372	32	200	OK
+1744446695.401	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	3	POST	ms-sync.corp-cdn.top	/api/v1/events	TeslaBrowser/5.5	1027967	32	200	OK
 1744446800.030	CxA040	10.10.42.87	52021	2603:1030::442	443	1	POST	fe3.delivery.mp.microsoft.com	/ClientWebService/client.asmx	Microsoft-Delivery-Optimization/10.0	4022	312988	200	OK
 1744446880.101	CxA042	10.10.42.87	52125	104.16.128.20	443	1	GET	notify.trello.com	/1/notifications	Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0	0	1082	200	OK
 1744446920.201	CxA043	10.10.42.87	52130	52.203.87.114	443	1	POST	api.segment.io	/v1/batch	Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0	1088	60	200	OK
 1744446960.311	CxA046	10.10.42.87	52140	52.113.194.132	443	1	GET	marketplace.visualstudio.com	/_apis/public/gallery/publishers/ms-python/vsextensions/python/2024.14.0/vspackage	Code/1.94.2	0	38122	200	OK
 1744446991.020	CxA044	10.10.42.87	52030	142.250.185.238	443	1	GET	clients2.google.com	/service/update2/crx	Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0	0	3811	200	OK
 1744447010.221	CxA047	10.10.42.87	52032	142.250.185.238	443	1	GET	safebrowsing.google.com	/v4/threatListUpdates:fetch	Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0	0	2044	200	OK
+1744446000.101	CxA063	10.10.42.87	51044	142.250.185.99	443	1	GET	www.google.com	/gen_204	Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0	0	0	204	No Content
+1744446320.011	CxA065	10.10.42.87	51061	142.250.181.35	443	1	GET	apis.google.com	/js/api.js	Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0	0	42011	200	OK
+1744446420.021	CxA067	10.10.42.87	52104	52.98.170.42	443	1	POST	outlook.office365.com	/mapi/emsmdb/	Microsoft Office/16.0 (Windows NT 10.0; Microsoft Outlook 16.0.17328; Pro)	18022	42011	200	OK
+1744446530.011	CxA068	10.10.42.87	52131	142.250.180.42	443	1	GET	fonts.googleapis.com	/css2?family=Roboto:wght@300;400;500&display=swap	Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0	0	3211	200	OK
+1744446780.011	CxA070	10.10.42.87	52200	13.107.42.13	443	1	GET	onedrive.live.com	/api/1.0/status	Microsoft SkyDriveSync 24.152.0729.0002 ship; Windows NT 10.0 (22621)	0	812	200	OK
+1744446980.021	CxA071	10.10.42.87	52201	140.82.121.4	443	1	GET	api.github.com	/repos/microsoft/vscode/releases/latest	Code/1.94.2	0	22011	200	OK
+1744447060.011	CxA072	10.10.42.87	52210	52.114.132.14	443	1	GET	teams.microsoft.com	/api/mt/apac/beta/notifications/count	MSTeams/1.6.00.4472	0	1088	200	OK
 #close	2026-04-12-10-04-00

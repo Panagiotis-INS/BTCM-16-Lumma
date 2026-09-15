@@ -112,3 +112,85 @@ LowerCaseLongPath   : c:\windows\ccm\ccmexec.exe
 LinkDate            : 2025-08-11 08:23:00Z
 Publisher           : Microsoft Corporation
 FirstSeenTimestamp  : 2025-08-14T09:33:00Z
+
+Name                : OneDriveUpdater.exe
+LowerCaseLongPath   : c:\users\katerina.morfopoulou\appdata\local\microsoft\onedrive\24.152.0729.0002\onedriveupdater.exe
+LinkDate            : 2025-11-04 09:11:00Z
+Size                : 1,024,512 bytes
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-11-07T09:12:00Z
+
+Name                : MicrosoftEdge.exe
+LowerCaseLongPath   : c:\program files (x86)\microsoft\edge\application\microsoftedge.exe
+LinkDate            : 2025-12-01 10:00:00Z
+Size                : 4,214,832 bytes
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-12-04T09:00:00Z
+
+Name                : MicrosoftEdgeUpdate.exe
+LowerCaseLongPath   : c:\windows\system32\microsoftedgeupdate.exe
+LinkDate            : 2025-11-01 10:04:00Z
+Size                : 1,842,120 bytes
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-11-04T09:00:00Z
+
+Name                : dllhost.exe
+LowerCaseLongPath   : c:\windows\system32\dllhost.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : audiodg.exe
+LowerCaseLongPath   : c:\windows\system32\audiodg.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : WmiPrvSE.exe
+LowerCaseLongPath   : c:\windows\system32\wbem\wmiprvse.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : SearchProtocolHost.exe
+LowerCaseLongPath   : c:\windows\system32\searchprotocolhost.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : MsMpEng.exe
+LowerCaseLongPath   : c:\program files\windows defender\msmpeng.exe
+LinkDate            : 2025-11-01 10:04:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-11-04T09:00:00Z
+
+Name                : taskhostw.exe
+LowerCaseLongPath   : c:\windows\system32\taskhostw.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : conhost.exe
+LowerCaseLongPath   : c:\windows\system32\conhost.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : Adobe Acrobat.exe
+LowerCaseLongPath   : c:\program files\adobe\acrobat dc\acrobat\acrobat.exe
+LinkDate            : 2025-08-14 12:41:00Z
+Publisher           : Adobe Inc.
+FirstSeenTimestamp  : 2025-08-17T09:12:00Z
+
+Name                : firefox.exe
+LowerCaseLongPath   : c:\program files\mozilla firefox\firefox.exe
+LinkDate            : 2025-10-11 22:07:00Z
+Size                : 621,344 bytes
+Publisher           : Mozilla Corporation
+FirstSeenTimestamp  : 2025-10-13T08:00:11Z
+
+Name                : OpenVPNConnect.exe
+LowerCaseLongPath   : c:\program files\openvpn connect\openvpnconnect.exe
+LinkDate            : 2025-09-04 11:22:00Z
+Publisher           : OpenVPN Inc.
+FirstSeenTimestamp  : 2025-09-07T09:00:00Z

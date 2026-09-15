@@ -39,3 +39,15 @@ UpdateTimestamp,UpdateReason,ParentPath,FileName,MftEntry,ParentMftEntry
 2026-04-12T09:46:11.021Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,MpCmdRun-log_20260412094611.log,183711,148012
 2026-04-12T09:50:00.014Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,VSCode-Log-9911.log,183611,148012
 2026-04-12T09:50:11.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,~$OneDrive-cache-idx,183700,148012
+2026-04-12T09:07:44.311Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,MSI0e8f4.LOG,183440,148012
+2026-04-12T09:14:12.401Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,SearchProtocolHost-Cache,183510,148012
+2026-04-12T09:14:22.401Z,FILE_CREATE|DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\SearchProtocolHost-Cache,fltMgrCache.dat,183520,183510
+2026-04-12T09:16:44.111Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Google\Chrome\User Data\Default,Preferences,148125,148012
+2026-04-12T09:19:44.014Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive\logs\Business1,SyncEngine-2026-04-12.odl,148114,148012
+2026-04-12T09:33:44.010Z,FILE_CREATE|CLOSE,\ProgramData\Microsoft\Windows Defender\Support,MPLog-20260412-093300.log,148401,148012
+2026-04-12T09:34:20.001Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,Zoom_Update_20260412.log,183740,148012
+2026-04-12T09:36:44.881Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Roaming\Microsoft\Teams\Cache,f_00001b,148144,148012
+2026-04-12T09:39:04.001Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Google\Chrome\User Data\Default\Cache,data_3,148136,148012
+2026-04-12T09:43:14.221Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations,1bc392b8e104a00e.customDestinations-ms,148470,148012
+2026-04-12T09:47:44.311Z,FILE_CREATE|DATA_EXTEND|CLOSE,\ProgramData\Microsoft\Windows Defender\Definition Updates\{5C3E1EAF-1234-4A56-B789-A0B1C2D3E4F5},mpengine.dll,148441,148012
+2026-04-12T09:53:44.181Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive\logs\Business1,SyncEngine-2026-04-12.odl,148114,148012

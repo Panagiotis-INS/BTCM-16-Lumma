@@ -62,4 +62,30 @@ RecordNumber,EventId,TimeCreated,Provider,Computer,Channel,LogonType,TargetUserN
 7419900,4624,2026-04-12T09:57:11.311Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,3,edr-collector,NORTHWIND,10.10.10.30,-,C:\Windows\System32\svchost.exe
 7419901,4672,2026-04-12T09:57:11.399Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,edr-collector,NORTHWIND,-,-,-
 7419902,4688,2026-04-12T09:57:12.011Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,edr-collector,NORTHWIND,-,-,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+7415088,4624,2026-04-12T09:06:10.221Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,LOCAL SERVICE,NT AUTHORITY,-,-,C:\Windows\System32\svchost.exe
+7415090,4688,2026-04-12T09:07:44.311Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\dllhost.exe
+7415092,4624,2026-04-12T09:08:14.010Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,NETWORK SERVICE,NT AUTHORITY,-,-,C:\Windows\System32\svchost.exe
+7415095,4634,2026-04-12T09:09:44.201Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,LOCAL SERVICE,NT AUTHORITY,-,-,-
+7415101,4688,2026-04-12T09:11:00.221Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\wbem\WmiPrvSE.exe
+7415103,4624,2026-04-12T09:11:44.311Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,3,FIN-WKS-07$,NORTHWIND,10.10.10.11,-,C:\Windows\System32\lsass.exe
+7415110,4634,2026-04-12T09:12:11.001Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,3,FIN-WKS-07$,NORTHWIND,-,-,-
+7415120,4688,2026-04-12T09:14:12.401Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\SearchProtocolHost.exe
+7415130,4624,2026-04-12T09:16:44.111Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\services.exe
+7415145,4688,2026-04-12T09:22:44.221Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\taskhostw.exe
+7415158,4688,2026-04-12T09:26:33.881Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,katerina.morfopoulou,NORTHWIND,-,-,C:\Users\katerina.morfopoulou\AppData\Local\slack\slack.exe
+7415170,4624,2026-04-12T09:29:14.222Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,3,FIN-WKS-07$,NORTHWIND,10.10.10.11,-,C:\Windows\System32\lsass.exe
+7415180,4688,2026-04-12T09:30:14.101Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\audiodg.exe
+7415195,4634,2026-04-12T09:32:11.501Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,3,FIN-WKS-07$,NORTHWIND,-,-,-
+7415210,4688,2026-04-12T09:33:44.010Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Program Files\Windows Defender\MpCmdRun.exe
+7415240,4624,2026-04-12T09:36:00.011Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,LOCAL SERVICE,NT AUTHORITY,-,-,C:\Windows\System32\svchost.exe
+7415252,4634,2026-04-12T09:37:44.201Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,LOCAL SERVICE,NT AUTHORITY,-,-,-
+7419430,4688,2026-04-12T09:42:44.101Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\taskhostw.exe
+7419550,4624,2026-04-12T09:43:00.014Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,LOCAL SERVICE,NT AUTHORITY,-,-,C:\Windows\System32\svchost.exe
+7419640,4688,2026-04-12T09:46:00.021Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Program Files\Windows Defender\MsMpEng.exe
+7419680,4634,2026-04-12T09:48:00.211Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,LOCAL SERVICE,NT AUTHORITY,-,-,-
+7419720,4624,2026-04-12T09:51:00.001Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,3,FIN-WKS-07$,NORTHWIND,10.10.10.11,-,C:\Windows\System32\lsass.exe
+7419750,4688,2026-04-12T09:53:44.181Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,katerina.morfopoulou,NORTHWIND,-,-,C:\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive\OneDrive.exe
+7419820,4634,2026-04-12T09:54:11.221Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,3,FIN-WKS-07$,NORTHWIND,-,-,-
+7419850,4688,2026-04-12T09:55:00.111Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\conhost.exe
+7419870,4624,2026-04-12T09:56:00.088Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,5,SYSTEM,NT AUTHORITY,-,-,C:\Windows\System32\services.exe
 7419911,4688,2026-04-12T09:57:44.001Z,Microsoft-Windows-Security-Auditing,FIN-WKS-07,Security,-,edr-collector,NORTHWIND,-,-,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
