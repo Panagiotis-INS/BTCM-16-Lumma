@@ -67,3 +67,28 @@
            Login    : analyst / Password123!
            Evidence : {{ lab_evidence_dest }}
           ================================================================
+
+- name: Disable unattended apt upgrades
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+    - name: Disable unattended upgrades in apt periodic config
+      ansible.builtin.copy:
+        dest: /etc/apt/apt.conf.d/20auto-upgrades
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          APT::Periodic::Update-Package-Lists "0";
+          APT::Periodic::Unattended-Upgrade "0";
+
+    - name: Disable apt daily timers
+      ansible.builtin.systemd:
+        name: "{{ item }}"
+        state: stopped
+        enabled: false
+        masked: true
+      loop:
+        - apt-daily.timer
+        - apt-daily-upgrade.timer
