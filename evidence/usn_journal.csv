@@ -1,0 +1,41 @@
+UpdateTimestamp,UpdateReason,ParentPath,FileName,MftEntry,ParentMftEntry
+2026-04-12T09:00:44.011Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive,OneDrive.exe,148102,5
+2026-04-12T09:04:12.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,MSI3f2a0.LOG,148411,148012
+2026-04-12T09:04:15.221Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,MSI3f2a0.LOG,148411,148012
+2026-04-12T09:16:12.200Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,katerina.morfopoulou@northwind.lab.ost,148105,148012
+2026-04-12T09:21:18.700Z,DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Google\Chrome\User Data\Default\Cache,data_2,148520,148012
+2026-04-12T09:22:12.881Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,SlackSetup.log,148490,148012
+2026-04-12T09:23:04.881Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Roaming\Slack\storage,slack-downloads,148120,148012
+2026-04-12T09:25:12.410Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Roaming\Microsoft\Teams\Cache,f_00001a,148140,148012
+2026-04-12T09:28:11.881Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Google\Chrome\User Data\Default\Sessions,Session_13351212004,148521,148012
+2026-04-12T09:34:00.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,~DFA8B12.tmp,148612,148012
+2026-04-12T09:34:14.400Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,OICE_16_974FA576.0FF_2026-04-12,148900,148012
+2026-04-12T09:40:47.100Z,DATA_EXTEND|CLOSE,\Windows\Prefetch,POWERSHELL.EXE-A97112F1.pf,149000,5
+2026-04-12T09:40:53.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive\Update,OneDriveSync.exe,148101,148100
+2026-04-12T09:40:53.501Z,FILE_CREATE|CLOSE,\Windows\Prefetch,ONEDRIVESYNC.EXE-B12211FA.pf,149001,5
+2026-04-12T09:41:14.018Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,WwaCJ7z,183421,148012
+2026-04-12T09:41:22.100Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Local State,183424,183421
+2026-04-12T09:41:23.453Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Login Data,183425,183421
+2026-04-12T09:41:23.531Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Cookies,183426,183421
+2026-04-12T09:41:27.011Z,FILE_CREATE|DATA_EXTEND|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,System.txt,183422,183421
+2026-04-12T09:41:27.900Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Google\Chrome\User Data\Default,History-journal,148522,148012
+2026-04-12T09:41:29.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Northwind_Q4_earnings.docx,183427,183421
+2026-04-12T09:41:29.453Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,expenses-summary.xlsx,183428,183421
+2026-04-12T09:41:29.531Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,todo.txt,183429,183421
+2026-04-12T09:41:31.887Z,FILE_CREATE|DATA_EXTEND|DATA_TRUNCATION|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,stealer_bundle.zip,183423,183421
+2026-04-12T09:41:31.900Z,DATA_EXTEND|CLOSE,\Windows\Prefetch,7Z.EXE-D51102FA.pf,149002,5
+2026-04-12T09:41:32.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,MSI4a1b2.LOG,148412,148012
+2026-04-12T09:41:41.421Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,System.txt,183422,183421
+2026-04-12T09:41:41.421Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Local State,183424,183421
+2026-04-12T09:41:41.421Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Login Data,183425,183421
+2026-04-12T09:41:41.421Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Cookies,183426,183421
+2026-04-12T09:41:41.421Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,Northwind_Q4_earnings.docx,183427,183421
+2026-04-12T09:41:41.421Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,expenses-summary.xlsx,183428,183421
+2026-04-12T09:41:41.421Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,todo.txt,183429,183421
+2026-04-12T09:41:41.453Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z,stealer_bundle.zip,183423,183421
+2026-04-12T09:41:41.453Z,FILE_DELETE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,WwaCJ7z,183421,148012
+2026-04-12T09:44:00.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,chrome_BITS_4120_10222,183500,148012
+2026-04-12T09:45:33.011Z,FILE_CREATE|CLOSE,\Windows\SoftwareDistribution\Download\Install,AM_Delta_Patch_1.409.201.0.exe,148940,5
+2026-04-12T09:46:11.021Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,MpCmdRun-log_20260412094611.log,183711,148012
+2026-04-12T09:50:00.014Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,VSCode-Log-9911.log,183611,148012
+2026-04-12T09:50:11.011Z,FILE_CREATE|CLOSE,\Users\katerina.morfopoulou\AppData\Local\Temp,~$OneDrive-cache-idx,183700,148012

@@ -1,0 +1,144 @@
+$ capa -q -r . OneDriveSync.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [00:12<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | 3c9cf82bcb7717a4e69204b0f2c1d6b5                       |
+| sha1                   | 7a5f92c1e0c8b3d4a6f1e2b0c9d8a7b6c5e4d3f2               |
+| sha256                 | 7a5f92c1e0c8b3d4a6f1e2b0c9d8a7b6c5e4d3f2a1b09c8d7e6f5a4b3c2d1e0f9 |
+| analysis               | static                                                 |
+| os                     | windows                                                |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| extractor              | vivisect                                               |
+| base address           | 0x140000000                                            |
+| rules                  | (2026-02) ./                                           |
+| function count         | 314                                                    |
+| library function count | 0                                                      |
+| total feature count    | 14202                                                  |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| ATT&CK Tactic          | ATT&CK Technique                                       |
++========================+========================================================+
+| DEFENSE-EVASION        | Obfuscated Files or Information [T1027]                |
+| DEFENSE-EVASION        | Process Injection::Process Hollowing [T1055.012]       |
+| DEFENSE-EVASION        | Reflective Code Loading [T1620]                        |
+| DEFENSE-EVASION        | Impair Defenses::Disable or Modify Tools [T1562.001]   |
+| DISCOVERY              | System Information Discovery [T1082]                   |
+| DISCOVERY              | Software Discovery [T1518]                             |
+| DISCOVERY              | System Owner/User Discovery [T1033]                    |
+| DISCOVERY              | System Network Configuration Discovery [T1016]         |
+| CREDENTIAL-ACCESS      | Credentials from Password Stores::Credentials          |
+|                        | from Web Browsers [T1555.003]                          |
+| COLLECTION             | Archive Collected Data::Archive via Utility [T1560.001]|
+| COMMAND-AND-CONTROL    | Application Layer Protocol::Web Protocols [T1071.001]  |
+| COMMAND-AND-CONTROL    | Encrypted Channel::Symmetric Cryptography [T1573.001]  |
+| EXFILTRATION           | Exfiltration Over C2 Channel [T1041]                   |
++------------------------+--------------------------------------------------------+
+
++------------------------+--------------------------------------------------------+
+| MBC Objective          | MBC Behavior                                           |
++========================+========================================================+
+| ANTI-BEHAVIORAL-ANAL.  | Debugger Detection::Query Time                         |
+| ANTI-BEHAVIORAL-ANAL.  | Virtual Machine Detection::CPUID Check                 |
+| ANTI-STATIC-ANALYSIS   | Executable Code Obfuscation::Argument Obfuscation      |
+| CRYPTOGRAPHY           | Encrypt Data::ChaCha20 Stream Cipher                   |
+| CRYPTOGRAPHY           | Cryptographic Hashing::FNV-1a Hash                     |
+| CRYPTOGRAPHY           | Encode Data::Base64                                    |
+| PROCESS                | Terminate Process                                      |
+| DATA                   | Compress Data::LZ4                                     |
++------------------------+--------------------------------------------------------+
+
++---------------------------------------------------------+----------+
+| CAPABILITY                                              | NAMESPACE|
++=========================================================+==========+
+| get computer name                                       | host-... |
+| get GPU information                                     | host-... |
+| get current user                                        | host-... |
+| get default language                                    | host-... |
+| get disk information                                    | host-... |
+| get installed applications                              | host-... |
+| enumerate PEB modules                                   | linking  |
+| enumerate loaded DLLs via TIB                           | linking  |
+| resolve function by hash                                | linking  |
+| hash imports by name using FNV-1a (0x811C9DC5 basis)    | linking  |
+| encrypt data using ChaCha20                             | data-... |
+| decode data using base64                                | data-... |
+| decompress data using LZ4                               | data-... |
+| read process memory                                     | host-... |
+| open handle to another process                          | host-... |
+| create process suspended                                | host-... |
+| write registry value (HKCU\...\Run\OneDriveSync)        | host-... |
+| impersonate user                                        | host-... |
+| write clipboard data                                    | data-... |
+| bypass UAC via fodhelper.exe                            | host-... |
+| access chromium local state                             | data-... |
+| access chromium cookies                                 | data-... |
+| access chromium login data                              | data-... |
+| enumerate discord leveldb                               | data-... |
+| enumerate telegram tdata                                | data-... |
+| build HTTP request (POST /c2sock)                       | comm...  |
+| send data using WinHTTP                                 | comm...  |
+| use application-specific User-Agent (TeslaBrowser/5.5)  | comm...  |
+| resolve DNS name                                        | comm...  |
+| initialise WinHTTP session                              | comm...  |
++---------------------------------------------------------+----------+
+
+Detail — capability "hash imports by name using FNV-1a (0x811C9DC5 basis)"
+------------------------------------------------------------------------
+function @ 0x140011f30
+  and: FNV-1a hashing loop over ASCII bytes
+    - number: 0x811c9dc5           # FNV-1a offset basis
+    - number: 0x01000193           # FNV-1a prime multiplier
+    - mnemonic: xor
+    - mnemonic: imul
+  api: kernel32.LoadLibraryA (indirect)
+  api: kernel32.GetProcAddress (indirect)
+
+Detail — capability "encrypt data using ChaCha20"
+------------------------------------------------------------------------
+function @ 0x140014abc
+  and: ChaCha20 initialisation
+    - string: "expand 32-byte k"
+    - number: 0x61707865
+    - number: 0x3320646e
+    - number: 0x79622d32
+    - number: 0x6b206574
+
+Detail — capability "bypass UAC via fodhelper.exe"
+------------------------------------------------------------------------
+function @ 0x140016e02
+  and: fodhelper UAC bypass technique
+    - string: "Software\\Classes\\ms-settings\\Shell\\Open\\command"
+    - string: "DelegateExecute"
+    - api: advapi32.RegSetValueExW
+
+Detail — capability "build HTTP request (POST /c2sock)"
+------------------------------------------------------------------------
+function @ 0x140018a2f
+  and:
+    - string: "POST"
+    - string: "/c2sock"
+    - string: "Content-Type: application/x-www-form-urlencoded"
+    - api: winhttp.WinHttpOpenRequest
+    - api: winhttp.WinHttpSendRequest
+
+# --- Additional benign PE scanned as a control ---
+$ capa -q -r . OneDrive.exe
+loading : 100%|██████████████████████████████████████| 947/947 [00:04<00:00]
+matching: 100%|██████████████████████████████████████| 189/189 [00:44<00:00]
+
++------------------------+--------------------------------------------------------+
+| md5                    | e2c11f0a3c92b3a41dc82011d02f4188                       |
+| sha1                   | 88b1a76b1cf6e18d9a1a0e2c1b8f7d6e2c1a9b8f                |
+| sha256                 | c9f81e02b3d4a6f1e2b0c9d8a7b6c5e4d3f2a1b09c8d7e6f5a4b3c2d1e0f9aa1 |
+| analysis               | static                                                 |
+| format                 | pe                                                     |
+| arch                   | amd64                                                  |
+| function count         | 8412                                                   |
+| library function count | 1220                                                   |
++------------------------+--------------------------------------------------------+
+
+Nothing hit outside of routine Windows API usage (registry read, HTTP GET, file I/O).
+Signed by Microsoft Corporation — analyst flagged as benign.

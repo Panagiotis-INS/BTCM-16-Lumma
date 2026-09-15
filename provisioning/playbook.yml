@@ -1,0 +1,118 @@
+- name: Configure axvm (Lumma ClickFix DFIR analyst workstation)
+  hosts: axvm
+  gather_facts: false
+  become: true
+  pre_tasks:
+    - name: Wait for SSH to accept connections
+      ansible.builtin.wait_for_connection:
+        delay: 0
+        sleep: 10
+        timeout: 900
+  roles:
+    - role: ansible-role-user-access
+      user_access_username: analyst
+      user_access_password: Password123!
+      user_access_admin: True
+  tasks:
+    - name: Grant analyst unrestricted sudo (NOPASSWD ALL)
+      ansible.builtin.copy:
+        dest: /etc/sudoers.d/analyst
+        content: "analyst ALL=(ALL) NOPASSWD:ALL\n"
+        owner: root
+        group: root
+        mode: "0440"
+        validate: /usr/sbin/visudo -cf %s
+
+    - name: Install DFIR analyst tooling (text-track + optional engines-track)
+      ansible.builtin.apt:
+        name:
+          # Baseline shell + fetch utilities
+          - curl
+          - wget
+          - git
+          - unzip
+          - jq
+          - ripgrep
+          - less
+          - xxd
+          # Requested terminal multiplexer
+          - terminator
+          # Optional "engines track": run the ClickFix detection rules offline
+          - yara
+          - suricata
+          # Python tooling (Sigma CLI, ad-hoc decode scripts)
+          - python3
+          - python3-pip
+          - pipx
+        state: present
+        update_cache: true
+
+    - name: Ensure lab workspace exists
+      ansible.builtin.file:
+        path: "{{ lab_evidence_dest }}"
+        state: directory
+        owner: analyst
+        group: analyst
+        mode: "0755"
+
+    - name: Copy the Lumma ClickFix lab pack from the provisioner into the analyst home
+      ansible.posix.synchronize:
+        src: "{{ playbook_dir }}/../"
+        dest: "{{ lab_evidence_dest }}/"
+        rsync_opts:
+          - "--exclude=.git"
+          - "--exclude=provisioning"
+
+    - name: Ensure analyst owns the lab workspace
+      ansible.builtin.file:
+        path: "{{ lab_evidence_dest }}"
+        state: directory
+        owner: analyst
+        group: analyst
+        recurse: true
+
+    - name: Fetch Chainsaw (Sigma-on-EVTX runner) release binary
+      ansible.builtin.get_url:
+        url: https://github.com/WithSecureLabs/chainsaw/releases/latest/download/chainsaw_x86_64-unknown-linux-gnu.tar.gz
+        dest: /tmp/chainsaw.tar.gz
+        mode: "0644"
+
+    - name: Extract Chainsaw into /opt
+      ansible.builtin.unarchive:
+        src: /tmp/chainsaw.tar.gz
+        dest: /opt/
+        remote_src: true
+        creates: /opt/chainsaw
+
+    - name: Symlink chainsaw into /usr/local/bin
+      ansible.builtin.file:
+        src: /opt/chainsaw/chainsaw
+        dest: /usr/local/bin/chainsaw
+        state: link
+        force: true
+
+    - name: Install sigma-cli for the analyst user (rule-conversion exercises)
+      ansible.builtin.command: pipx install sigma-cli
+      args:
+        creates: /home/analyst/.local/bin/sigma
+      become_user: analyst
+      environment:
+        PIPX_HOME: /home/analyst/.local/pipx
+        PIPX_BIN_DIR: /home/analyst/.local/bin
+
+    - name: Drop analyst welcome banner with lab pointers
+      ansible.builtin.copy:
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          ================================================================
+           BTCM-16 Lumma ClickFix — DFIR analyst workstation (axvm)
+          ================================================================
+           Login   : analyst / Password123!
+           Lab     : {{ lab_evidence_dest }}
+           Docs    : {{ lab_evidence_dest }}/northwind-clickfix_STUDENT.md
+           Engines : yara, suricata (offline mode), chainsaw, sigma-cli
+           Shell   : open a new terminal via `terminator` from the menu
+          ================================================================

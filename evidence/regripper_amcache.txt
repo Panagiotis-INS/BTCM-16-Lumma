@@ -1,0 +1,114 @@
+Launching amcache v.20221219
+amcache v.20221219
+(Amcache.hve) Parse Amcache.hve — inventory subset for FIN-WKS-07
+
+------------------------------------------------------------
+Root\InventoryApplicationFile
+------------------------------------------------------------
+
+Name                : OneDrive.exe
+LowerCaseLongPath   : c:\users\katerina.morfopoulou\appdata\local\microsoft\onedrive\onedrive.exe
+LinkDate            : 2024-11-14 21:04:00Z
+Size                : 27,231,232 bytes
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-04-16T09:33:00Z
+
+Name                : OneDriveSync.exe
+LowerCaseLongPath   : c:\users\katerina.morfopoulou\appdata\local\microsoft\onedrive\update\onedrivesync.exe
+FileId              : 00007a5f92c1e0c8b3d4a6f1e2b0c9d8a7b6c5e4d3f2a1b09c8d7e6f5a4b3c2d1e0f9
+SHA1                : 7a5f92c1e0c8b3d4a6f1e2b0c9d8a7b6c5e4d3f2
+LinkDate            : 2026-04-08 14:22:00Z
+Size                : 189,952 bytes
+BinaryType          : pe64_amd64
+IsPeFile            : true
+Publisher           : (empty)
+ProductName         : (empty)
+ProductVersion      : (empty)
+FirstSeenTimestamp  : 2026-04-12 09:40:53Z
+
+Name                : slack.exe
+LowerCaseLongPath   : c:\users\katerina.morfopoulou\appdata\local\slack\app-4.39.90\slack.exe
+LinkDate            : 2025-02-11 08:23:00Z
+Size                : 138,341,832 bytes
+Publisher           : Slack Technologies, LLC
+FirstSeenTimestamp  : 2025-05-11T10:22:00Z
+
+Name                : Teams.exe
+LowerCaseLongPath   : c:\users\katerina.morfopoulou\appdata\local\microsoft\teams\current\teams.exe
+LinkDate            : 2025-08-01 10:44:00Z
+Size                : 108,772,120 bytes
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-08-04T11:00:00Z
+
+Name                : Zoom.exe
+LowerCaseLongPath   : c:\users\katerina.morfopoulou\appdata\roaming\zoom\bin\zoom.exe
+LinkDate            : 2025-09-11 11:22:00Z
+Size                : 42,120,332 bytes
+Publisher           : Zoom Video Communications, Inc.
+FirstSeenTimestamp  : 2025-09-15T09:00:00Z
+
+Name                : Code.exe
+LowerCaseLongPath   : c:\users\katerina.morfopoulou\appdata\local\programs\microsoft vs code\code.exe
+LinkDate            : 2025-03-04 17:44:00Z
+Size                : 156,893,184 bytes
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-06-01T13:22:00Z
+
+Name                : 7z.exe
+LowerCaseLongPath   : c:\program files\7-zip\7z.exe
+LinkDate            : 2024-11-01 10:04:00Z
+FirstSeenTimestamp  : 2025-06-10 12:00:00Z
+
+Name                : msiexec.exe
+LowerCaseLongPath   : c:\windows\system32\msiexec.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : gpupdate.exe
+LowerCaseLongPath   : c:\windows\system32\gpupdate.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : powershell.exe
+LowerCaseLongPath   : c:\windows\system32\windowspowershell\v1.0\powershell.exe
+LinkDate            : 2024-08-14 03:41:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2024-11-08T15:11:07Z
+
+Name                : chrome.exe
+LowerCaseLongPath   : c:\program files\google\chrome\application\chrome.exe
+LinkDate            : 2025-11-19 22:07:00Z
+Publisher           : Google LLC
+FirstSeenTimestamp  : 2025-11-21T08:00:11Z
+
+Name                : NWTK.exe
+LowerCaseLongPath   : c:\program files\northwind\timekeeper\nwtk.exe
+LinkDate            : 2025-09-03 11:12:00Z
+Publisher           : Northwind Solar Analytics
+FirstSeenTimestamp  : 2025-09-06T09:00:00Z
+
+Name                : Notepad++.exe
+LowerCaseLongPath   : c:\program files\notepad++\notepad++.exe
+LinkDate            : 2024-06-05 12:00:00Z
+Publisher           : Notepad++ Team
+FirstSeenTimestamp  : 2024-11-08T15:12:11Z
+
+Name                : OUTLOOK.EXE
+LowerCaseLongPath   : c:\program files\microsoft office\root\office16\outlook.exe
+LinkDate            : 2025-01-12 08:14:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-01-14T09:12:00Z
+
+Name                : MpCmdRun.exe
+LowerCaseLongPath   : c:\program files\windows defender\mpcmdrun.exe
+LinkDate            : 2025-11-01 10:04:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-11-04T09:00:00Z
+
+Name                : CcmExec.exe
+LowerCaseLongPath   : c:\windows\ccm\ccmexec.exe
+LinkDate            : 2025-08-11 08:23:00Z
+Publisher           : Microsoft Corporation
+FirstSeenTimestamp  : 2025-08-14T09:33:00Z

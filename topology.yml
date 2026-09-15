@@ -1,0 +1,34 @@
+name: btcmp16-lumma
+hosts:
+  - name: axvm
+    flavor: c4_r8_d60
+    base_box:
+      image: xubuntu-noble-x86_64
+      mgmt_user: ubuntu
+      mgmt_protocol: ssh
+    hidden: false
+routers:
+  - name: router
+    flavor: standard.small
+    base_box:
+      image: debian-12-x86_64
+      mgmt_user: debian
+      mgmt_protocol: ssh
+    hidden: false
+networks:
+  - name: access-switch
+    cidr: 10.10.10.0/24
+    accessible_by_user: true
+    hidden: false
+wan:
+  name: wan
+  cidr: 10.10.100.0/24
+net_mappings:
+  - host: axvm
+    network: access-switch
+    ip: 10.10.10.3
+router_mappings:
+  - router: router
+    network: access-switch
+    ip: 10.10.10.1
+groups: []

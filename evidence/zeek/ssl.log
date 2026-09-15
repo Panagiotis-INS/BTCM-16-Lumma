@@ -1,0 +1,40 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	ssl
+#open	2026-04-12-09-58-00
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	version	cipher	curve	server_name	resumed	last_alert	next_protocol	established	ssl_history	cert_chain_fps
+#types	time	string	addr	port	addr	port	string	string	string	string	bool	string	string	bool	string	vector[string]
+1744445610.410	CxA002	10.10.42.87	51009	52.98.170.42	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	outlook.office365.com	F	-	h2	T	dhxsc	aabb01...ccdd
+1744445640.221	CxA004	10.10.42.87	51012	52.98.170.42	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	autodiscover-s.outlook.com	F	-	h2	T	dhxsc	aabb01...ccdd
+1744445690.311	CxA006	10.10.42.87	51020	52.184.220.203	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	settings-win.data.microsoft.com	F	-	h2	T	dhxsc	aa22cc...11dd
+1744445692.881	CxA007	10.10.42.87	51021	152.199.19.161	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	ctldl.windowsupdate.com	F	-	http/1.1	T	dhxsc	aa33dd...22ee
+1744445720.020	CxA010	10.10.42.87	51014	52.85.132.111	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	wss-primary.slack.com	F	-	h2	T	dhxsc	1122ff...eeaa
+1744445740.021	CxA012	10.10.42.87	51015	52.85.132.90	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	files-edge.slack.com	F	-	h2	T	dhxsc	1122ff...eebb
+1744445900.041	CxA013	10.10.42.87	51070	10.10.10.60	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	intranet.northwind.lab	F	-	h2	T	dhxsc	nw01ab...ccdd
+1744445950.051	CxA014	10.10.42.87	51072	10.10.10.61	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	jira.northwind.lab	F	-	h2	T	dhxsc	nw01ab...cddd
+1744446055.201	CxA016	10.10.42.87	51074	185.199.108.133	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	github.githubusercontent.com	F	-	h2	T	dhxsc	gh01ab...bbcc
+1744446100.401	CxA017	10.10.42.87	51100	52.114.132.14	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	teams.microsoft.com	F	-	h2	T	dhxsc	ms01ab...aacc
+1744446120.201	CxA018	10.10.42.87	51101	13.107.136.9	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	statics.teams.cdn.office.net	F	-	h2	T	dhxsc	ms01ab...aabb
+1744446200.020	CxA019	10.10.42.87	51041	151.101.1.229	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	cdn.jsdelivr.net	F	-	h2	T	dhxsc	9911aa...bbcc
+1744446301.020	CxA022	10.10.42.87	51048	142.250.185.174	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	drive.google.com	F	-	h2	T	dhxsc	3311bb...ccdd
+1744446354.031	CxA025	10.10.42.87	51081	151.101.1.10	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	assets.corp-cdn.top	F	-	h2	T	dhxsc	adca11...bbdd
+1744446420.020	CxA028	10.10.42.87	51059	142.250.180.35	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	fonts.gstatic.com	F	-	h2	T	dhxsc	4411cc...ddee
+1744446502.401	CxA030	10.10.42.87	52080	52.114.132.14	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	teams.microsoft.com	T	-	h2	T	dhxsc	ms01ab...aacc
+1744446550.041	CxA031	10.10.42.87	52082	10.10.10.44	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	sccm.northwind.lab	F	-	http/1.1	T	dhxsc	nw02cd...eeff
+1744446674.020	CO4kA7fJ7fq	10.10.42.87	52001	10.10.42.201	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	steamcommunity.com	F	-	http/1.1	T	dhxsc	dead1a...beef
+1744446675.201	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	c2-updates.corp-cdn.top	F	-	http/1.1	T	dhxsc	cafe11...face
+1744446676.421	CxA034	10.10.42.87	52011	52.98.170.42	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	outlook.office365.com	T	-	h2	T	dhxsc	aabb01...ccdd
+1744446677.920	CxA036	10.10.42.87	52014	151.101.1.140	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	cdn.slack-edge.com	F	-	h2	T	dhxsc	5511dd...eeff
+1744446693.100	CO9L3H2p2r	10.10.42.87	52007	10.10.42.201	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	c2-updates.corp-cdn.top	T	-	http/1.1	T	dhxsc	cafe11...face
+1744446700.412	CxA038	10.10.42.87	52012	151.101.1.10	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	assets.corp-cdn.top	T	-	h2	T	dhxsc	adca11...bbdd
+1744446800.031	CxA040	10.10.42.87	52021	2603:1030::442	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	fe3.delivery.mp.microsoft.com	F	-	h2	T	dhxsc	6611ee...ff00
+1744446835.041	CxA041	10.10.42.87	52025	52.147.219.128	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	array1.prd.dsp.mp.microsoft.com	F	-	h2	T	dhxsc	6611ee...ff11
+1744446880.021	CxA042	10.10.42.87	52125	104.16.128.20	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	notify.trello.com	F	-	h2	T	dhxsc	tr01ab...aabb
+1744446920.031	CxA043	10.10.42.87	52130	52.203.87.114	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	api.segment.io	F	-	h2	T	dhxsc	sg01ab...aabb
+1744446960.331	CxA046	10.10.42.87	52140	52.113.194.132	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	marketplace.visualstudio.com	F	-	h2	T	dhxsc	ms02cd...eeff
+1744446991.021	CxA044	10.10.42.87	52030	142.250.185.238	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	clients2.google.com	F	-	h2	T	dhxsc	7711ff...0011
+1744447010.221	CxA047	10.10.42.87	52032	142.250.185.238	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	safebrowsing.google.com	T	-	h2	T	dhxsc	7711ff...0011
+1744447080.031	CxA051	10.10.42.87	52102	10.10.10.30	443	TLSv13	TLS_AES_256_GCM_SHA384	x25519	edr-collector.northwind.lab	F	-	h2	T	dhxsc	nw03ef...aabb
+#close	2026-04-12-10-04-00

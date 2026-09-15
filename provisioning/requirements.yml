@@ -1,0 +1,5 @@
+roles:
+  - name: ansible-role-user-access
+    src: https://github.com/cyberrangecz/ansible-role-user-access
+    scm: git
+    version: v1.0.0
