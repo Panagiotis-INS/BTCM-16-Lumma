@@ -25,9 +25,7 @@ victim host and no C2 to emulate.
 
 WAN: `10.10.100.0/24` (router uplink).
 
-No victim / evidence machine (`wvvm`) — the "victim" is materialised as
-the text-only evidence pack pulled from the lab repo during provisioning.
-No Sliver C2.
+No victim / evidence machine (`wvvm`). No Sliver C2.
 
 ---
 
@@ -39,28 +37,14 @@ User `analyst` / `Password123!` (sudoer, SSH enabled).
 
 **Software (via apt):**
 - `git`, `curl`, `wget`, `unzip`
-- `jq`, `ripgrep`, `less`, `xxd`
+- `jq`, `less`, `xxd`
 - `terminator` (default multi-pane terminal for the analyst)
-- `yara` (offline PE/memory scanning for the trainer's YARA rules)
-- `suricata` (offline pcap replay for the trainer's Suricata rules)
-- `python3`, `python3-pip`, `pipx`
+- `python3`
 
-**Additional tooling (installed by provisioner):**
-- `chainsaw` — Sigma-on-EVTX runner; binary from the WithSecureLabs
-  GitHub release, symlinked into `/usr/local/bin/chainsaw`.
-- `sigma-cli` — installed for the `analyst` user via `pipx` for
-  rule-conversion exercises.
-
-**Lab pack:**
-- The lab tree (this repository) is rsync'd from the provisioner into
-  `/home/analyst/lab` at provision time (excluding `.git` and
-  `provisioning/`). The evidence pack lives under
-  `/home/analyst/lab/evidence/`. Student pack / instructor pack /
-  writeup markdown files sit at the repo root.
-
-**Notes:**
-- No Sliver C2 is installed. This lab is investigation-only.
-- No SMB mount is required — the evidence is text on the local disk.
+**Evidence:**
+- The parsed textual artefacts under this repo's `evidence/`
+  directory are copied to `/home/analyst/evidence/` at provision
+  time. Nothing else from the repo is deployed to the VM.
 
 ---
 
@@ -89,28 +73,8 @@ required.
 
 ---
 
-## Detection content shipped with the pack
-
-- `detections/clickfix-precursor.sigma.yml` — Sigma rule for the
-  `explorer.exe → powershell.exe → iwr/iex` ClickFix pattern.
-- `detections/lumma-c2.suricata.rules` — Suricata rules for the
-  `TeslaBrowser/5.5` UA + `POST /c2sock` C2 pattern and the
-  `steamcommunity.com` dead-drop.
-- `detections/northwind-clickfix.yar` — YARA rules for the trainer
-  PE and its in-memory markers (ChaCha20 constants, ABE marker,
-  FNV-1a basis).
-
-Text-track: read the rules and map each clause to the corresponding
-row in `evidence/*`. Engines-track: run the rules with `yara`,
-`suricata -r`, and `chainsaw` — all three tools are pre-installed on
-`axvm`.
-
----
-
 ## Notes
 
 - No Ansible Windows collection is required — the lab is Linux-only.
 - The `analyst` account is granted passwordless sudo for convenience;
   the range is single-tenant.
-- Network egress is required at provision time to pull the Chainsaw
-  release binary and the `sigma-cli` PyPI package.
